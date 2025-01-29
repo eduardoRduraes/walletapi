@@ -102,8 +102,10 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<WalletServices>();
 
 builder.Services.AddSingleton(new TokenService("b366be96b2143d71e7cea8b476a206d7"));
+
 
 var app = builder.Build();
 

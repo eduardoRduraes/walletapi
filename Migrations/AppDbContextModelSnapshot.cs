@@ -34,6 +34,9 @@ namespace WalletAPI.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<Guid>("ReceivedWalletId")
+                        .HasColumnType("uuid");
+
                     b.Property<Guid>("ReceiverWalletId")
                         .HasColumnType("uuid");
 
@@ -41,6 +44,10 @@ namespace WalletAPI.Migrations
                         .HasColumnType("uuid");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ReceivedWalletId");
+
+                    b.HasIndex("SenderWalletId");
 
                     b.ToTable("Transactions");
                 });
@@ -81,6 +88,25 @@ namespace WalletAPI.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Wallets");
+                });
+
+            modelBuilder.Entity("WalletAPI.Models.Transaction", b =>
+                {
+                    b.HasOne("WalletAPI.Models.Wallet", "ReceivedWallet")
+                        .WithMany()
+                        .HasForeignKey("ReceivedWalletId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WalletAPI.Models.Wallet", "SenderWallet")
+                        .WithMany()
+                        .HasForeignKey("SenderWalletId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ReceivedWallet");
+
+                    b.Navigation("SenderWallet");
                 });
 
             modelBuilder.Entity("WalletAPI.Models.Wallet", b =>

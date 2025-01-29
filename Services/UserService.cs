@@ -38,6 +38,15 @@ public class UserService
         
         _context.Users.Add(user);
         _context.SaveChanges();
+
+        var wallet = new Wallet
+        {
+            UserId = user.Id,
+            Balance = 0
+        };
+        
+        _context.Wallets.Add(wallet);
+        _context.SaveChanges();
         
         return user;
     }

@@ -7,4 +7,7 @@ public class Transaction
     public Guid ReceiverWalletId { get; set; }
     public decimal Amount { get; set; }
     public DateTime Date { get; set; } = DateTime.UtcNow;
+    
+    public Wallet SenderWallet { get; set; }
+    public Wallet ReceivedWallet { get; set; }
 }

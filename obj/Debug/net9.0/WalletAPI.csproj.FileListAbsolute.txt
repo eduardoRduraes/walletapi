@@ -130,3 +130,4 @@ C:\Users\Edu_o\RiderProjects\WalletAPI\bin\Debug\net9.0\Microsoft.IdentityModel.
 C:\Users\Edu_o\RiderProjects\WalletAPI\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\Edu_o\RiderProjects\WalletAPI\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\Edu_o\RiderProjects\WalletAPI\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Edu_o\RiderProjects\WalletAPI\obj\Debug\net9.0\WalletAPI.sourcelink.json
